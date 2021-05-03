@@ -10,3 +10,4 @@
 - Run NN_ORIENTATION_4O.py to generate the Neural Network model for 4 inputs.
 
 - Run the SENSOR_FUSION_4OS2.py program within your simulation and voila. Now you have a simulation of 4 ORB SLAM 2 combined via Neural Networks.
+- ORIENTATION.PY fuses orientation data just for usage example.
