@@ -1,0 +1,478 @@
+<?xml version='1.0'?>
+<sdf version = '1.4'>
+<model name = "AGV_1">
+<static>false</static>
+<!--Mass by default is on Kg-->
+<self_collide>1</self_collide> 
+<link name = 'chassisM'>	
+    <self_collide>1</self_collide> 
+    <pose>0 0 0 0 0 0 </pose>
+	<!-- Anchura del perfil Bosch = 0.05m & Radio de la llanta = 0.4-->
+	<!-- Masa de la parte central del chassis-->
+	<inertial>
+    <mass>300</mass>
+    <!--inertia>
+      <ixx>14.60</ixx>
+      <ixy>0.0</ixy>
+      <ixz>0.0</ixz>
+      <iyy>95.6</iyy>
+      <iyz>0.0</iyz>
+      <izz>38.42</izz>
+    </inertia-->
+  	</inertial>
+
+	<collision name = 'collision_chassis'>
+		<pose>0 0 0 0 0 0 </pose>
+		<geometry>
+			<box>
+			<!-- Center chasis box-->
+			<!--   L   W   H-->	
+			<size> 1.9131 0.648 0.4052</size>
+			</box>
+		</geometry>
+	</collision>
+
+	<surface>
+	    <friction>
+	      <ode>
+	        <mu>0</mu>
+	        <mu2>0</mu2>
+	      </ode>
+	    </friction>
+  	</surface>
+
+	<visual name='visual'>
+	<pose>0 0 0 0 0 0 </pose>
+	 <geometry>
+	    <box>
+	    	<!-- Center chasis box-->
+			<!--   L   W   H-->	
+	      <size> 1.9131 0.648 0.4052 </size>
+	    </box>
+	  </geometry>
+	</visual>
+</link>
+
+
+<link name ='left_front_st'>	
+    <self_collide>1</self_collide> 
+	<pose>0.66967 -0.4776 0.075 0 0 0</pose>
+
+	<inertial>
+    <mass>0.5</mass>
+    <inertia>
+      <ixx>0.0004291667</ixx>
+      <ixy>0.0</ixy>
+      <ixz>0.0</ixz>
+      <iyy>0.0004291667</iyy>
+      <iyz>0.0</iyz>
+      <izz>0.000025</izz>
+    </inertia>
+	</inertial>
+
+	<collision name = 'collision_lfs'>
+	<geometry>
+	<cylinder>
+	<radius>0.01</radius>
+	<length>0.1</length>
+	</cylinder>
+	</geometry>
+	</collision>
+
+	<visual name = 'visual'>
+	<geometry>
+	<cylinder>
+	<radius>0.01</radius>
+	<length>0.1</length>
+	</cylinder>
+	</geometry>
+	</visual>
+</link>
+
+<joint type='revolute' name='left_front_wheel_st' >
+	<pose>0 0 0 0 0 0</pose>
+	<child>left_front_st</child>
+	<parent>chassisM</parent>
+	<axis>
+	<xyz>0 0 1</xyz>
+	<dynamics>
+		<friction>0.01</friction>
+	</dynamics>
+	<limit>
+		<lower>-0.31</lower>
+		<upper>0.31</upper>
+	</limit>
+	</axis>
+</joint>
+
+<link name ='left_front_wheel'>
+
+    <self_collide>1</self_collide> 
+	<pose>0.66967 -0.580 0 1.54 0 0</pose>
+
+	<inertial>
+    <mass>5</mass>
+    <inertia>
+      <ixx>0.106843</ixx>
+      <ixy>0.0</ixy>
+      <ixz>0.0</ixz>
+      <iyy>0.106843</iyy>
+      <iyz>0.0</iyz>
+      <izz>0.20642</izz>
+    </inertia>
+    </inertial>
+
+	<collision name = 'collision_lfw'>
+	<geometry>
+	<cylinder>
+	<radius>0.28735</radius>
+	<length>0.09335</length>
+	</cylinder>
+	</geometry>
+
+	<surface>
+      <friction>
+        <ode>
+          <mu>0.7</mu>
+          <mu2>0.7</mu2>
+        </ode>
+
+        <!--bullet>
+        	<friction>0.3</friction>
+        	<friction>0.3</friction>
+        	<fdir1>0 0 1</fdir1>
+        	<rolling_friction>0.0150</rolling_friction>
+        </bullet-->
+
+        <!--soft_contact>
+        	<dart>
+        		<bone_attachment>50</bone_attachment>
+        		<stiffness>50</stiffness>
+        		<damping>5</damping>
+        		<flesh_mass_fraction>0.05</flesh_mass_fraction>
+        	</dart>
+        </soft_contact-->
+
+        <!--torsional>
+        	<coefficient>0.01</coefficient>        	
+        	<patch_radius>0.28735</patch_radius>
+        </torsional-->
+      </friction>
+    </surface>
+	</collision>
+
+	<pose>0.66967 -0.580 0 1.54 0 0</pose>
+	<visual name = 'visual'>
+	<geometry>
+	<cylinder>
+	<radius>0.28735</radius>
+	<length>0.09335</length>
+	</cylinder>
+	</geometry>
+
+	</visual>
+</link>
+
+<joint type='revolute' name='left_front_wheel_hinge' >
+	<pose>0 0 0 0 0 0</pose>
+	<child>left_front_wheel</child>
+	<parent>left_front_st</parent>
+	<axis>
+	<xyz>0 1 0</xyz>	
+	</axis>
+</joint>
+
+<!--               RIGHT FRONT                     -->
+
+<link name ='right_front_st'>	
+    <self_collide>1</self_collide> 
+	<pose>0.66967 0.4776 0.075 0 0 0</pose>
+
+	<inertial>
+    <mass>0.5</mass>
+    <inertia>
+      <ixx>0.0004291667</ixx>
+      <ixy>0.0</ixy>
+      <ixz>0.0</ixz>
+      <iyy>0.0004291667</iyy>
+      <iyz>0.0</iyz>
+      <izz>0.000025</izz>
+    </inertia>
+	</inertial>
+
+	<collision name = 'collision_rfs'>
+	<geometry>
+	<cylinder>
+	<radius>0.01</radius>
+	<length>0.1</length>
+	</cylinder>
+	</geometry>
+	</collision>
+
+	<visual name = 'visual'>
+	<geometry>
+	<cylinder>
+	<radius>0.01</radius>
+	<length>0.1</length>
+	</cylinder>
+	</geometry>
+	</visual>
+</link>
+
+<joint type='revolute' name='right_front_wheel_st' >
+	<pose>0 0 0 0 0 0</pose>
+	<child>right_front_st</child>
+	<parent>chassisM</parent>
+	<axis>
+	<xyz>0 0 1</xyz>
+	<dynamics>
+		<friction>0.01</friction>
+	</dynamics>
+	<limit>
+		<lower>-0.31</lower>
+		<upper>0.31</upper>
+	</limit>
+	</axis>
+</joint>
+
+<link name ='right_front_wheel'><!--damping>0.1</damping-->
+
+    <self_collide>1</self_collide> 
+	<pose>0.66967 0.580 0 1.54 0 0</pose>
+
+	<inertial>
+    <mass>5</mass>
+    <inertia>
+      <ixx>0.106843</ixx>
+      <ixy>0.0</ixy>
+      <ixz>0.0</ixz>
+      <iyy>0.106843</iyy>
+      <iyz>0.0</iyz>
+      <izz>0.20642</izz>
+    </inertia>
+    </inertial>
+
+	<collision name = 'collision_rfw'>
+	<geometry>
+	<cylinder>
+	<radius>0.28735</radius>
+	<length>0.09335</length>
+	</cylinder>
+	</geometry>
+
+	<surface>
+      <friction>
+        <ode>
+          <mu>0.7</mu>
+          <mu2>0.7</mu2>
+        </ode>
+
+        <!--bullet>
+        	<friction>0.3</friction>
+        	<friction>0.3</friction>
+        	<fdir1>0 0 1</fdir1>
+        	<rolling_friction>0.0150</rolling_friction>
+        </bullet-->
+
+        <!--torsional>
+        	<coefficient>0.01</coefficient>
+        	<patch_radius>0.28735</patch_radius>
+        </torsional-->
+      </friction>
+    </surface>
+	</collision>
+
+	<pose>0.66967 0.580 0 1.54 0 0</pose>
+	<visual name = 'visual'>
+	<geometry>
+	<cylinder>
+	<radius>0.28735</radius>
+	<length>0.09335</length>
+	</cylinder>
+	</geometry>
+
+	</visual>
+</link>
+
+<joint type='revolute' name='right_front_wheel_hinge' >
+	<pose>0 0 0 0 0 0</pose>
+	<child>right_front_wheel</child>
+	<parent>right_front_st</parent>
+	<axis>
+	<xyz>0 1 0</xyz>
+	<dynamics>
+		<!--damping>0.1</damping-->
+		<friction>0.1</friction>
+	</dynamics>
+	</axis>
+</joint>
+
+<!--               RIGHT REAR                     -->
+<link name ='right_rear_wheel'>
+    <self_collide>1</self_collide> 
+	<pose>-0.66967 -0.580 0 1.54 0 0</pose>
+
+	<inertial>
+    <mass>5</mass>
+    <inertia>
+      <ixx>0.106843</ixx>
+      <ixy>0.0</ixy>
+      <ixz>0.0</ixz>
+      <iyy>0.106843</iyy>
+      <iyz>0.0</iyz>
+      <izz>0.20642</izz>
+    </inertia>
+    </inertial>
+
+	<collision name = 'collision_rrw'>
+	<geometry>
+	<cylinder>
+	<radius>0.28735</radius>
+	<length>0.09335</length>
+	</cylinder>
+	</geometry>
+
+	<surface>
+      <friction>
+        <ode>
+          <mu>0.7</mu>
+          <mu2>0.7</mu2>
+        </ode>
+
+        <!--bullet>
+        	<friction>0.3</friction>
+        	<friction>0.3</friction>
+        	<fdir1>0 0 1</fdir1>
+        	<rolling_friction>0.0150</rolling_friction>
+        </bullet>
+
+        <torsional>
+        	<coefficient>0.01</coefficient>        	
+        	<patch_radius>0.28735</patch_radius>
+        </torsional-->
+      </friction>
+    </surface>
+	</collision>
+
+	<pose>-0.66967 -0.580 0 1.54 0 0</pose>
+	<visual name = 'visual'>
+	<geometry>
+	<cylinder>
+	<radius>0.28735</radius>
+	<length>0.09335</length>
+	</cylinder>
+	</geometry>
+
+	</visual>
+</link>
+
+<joint type='revolute' name='right_rear_wheel_hinge' >
+	<pose>0 0 0 0 0 0</pose>
+	<child>right_rear_wheel</child>
+	<parent>chassisM</parent>
+	<axis>
+	<xyz>0 1 0</xyz>
+	</axis>
+</joint>
+<!--               LEFT REAR                     -->
+<link name ='left_rear_wheel'>
+
+    <self_collide>1</self_collide> 
+	<pose>-0.66967 0.580 0 1.54 0 0</pose>
+
+	<inertial>
+    <mass>5</mass>
+    <inertia>
+      <ixx>0.106843</ixx>
+      <ixy>0.0</ixy>
+      <ixz>0.0</ixz>
+      <iyy>0.106843</iyy>
+      <iyz>0.0</iyz>
+      <izz>0.20642</izz>
+    </inertia>
+    </inertial>
+
+	<collision name = 'collision_lfw'>
+	<geometry>
+	<cylinder>
+	<radius>0.28735</radius>
+	<length>0.09335</length>
+	</cylinder>
+	</geometry>
+
+	<surface>
+      <friction>
+        <ode>
+          <mu>0.7</mu>
+          <mu2>0.7</mu2>
+
+          <!--bullet>
+        	<friction>0.3</friction>
+        	<friction>0.3</friction>
+        	<fdir1>0 0 1</fdir1>
+        	<rolling_friction>0.0150</rolling_friction>
+        </bullet>
+
+        <torsional>
+        	<coefficient>0.01</coefficient>        	
+        	<patch_radius>0.28735</patch_radius>
+        </torsional-->
+    	</ode>
+      </friction>
+    </surface>
+	</collision>
+	
+	<pose>-0.66967 0.580 0 1.54 0 0</pose>
+	<visual name = 'visual'>
+	<geometry>
+	<cylinder>
+	<radius>0.28735</radius>
+	<length>0.09335</length>
+	</cylinder>
+	</geometry>
+
+	</visual>
+</link>
+
+<joint type='revolute' name='left_rear_wheel_hinge' >
+	<pose>0 0 0 0 0 0</pose>
+	<child>left_rear_wheel</child>
+	<parent>chassisM</parent>
+	<axis>
+	<xyz>0 1 0</xyz>
+	</axis>
+</joint>
+
+<!--include>
+  <uri>model://depth_camera</uri>
+  <pose>1 0 0 0 0 0</pose>
+</include>
+<joint name="depth_camera" type="fixed">
+  <child>depth_camera::link</child>
+  <parent>chassisM</parent>
+</joint-->
+
+
+<include>
+  <uri>model://hokuyo_ros</uri>
+  <!--pose>1 0 0 0 0.70 0</pose-->
+  <pose>1 0 0 0 0 0</pose>
+</include>
+<joint name="hokuyo_ros" type="fixed">
+  <child>hokuyo_ros::link</child>
+  <parent>chassisM</parent>
+</joint>
+
+
+<!--include>
+  <uri>model://imu_ros</uri>
+  <pose>0 0 0.25 0 0 0</pose>
+</include>
+<joint name="imu_ros" type="fixed">
+  <child>imu_ros::link</child>
+  <parent>chassisM</parent>
+</joint-->
+
+</model>
+</sdf>
+

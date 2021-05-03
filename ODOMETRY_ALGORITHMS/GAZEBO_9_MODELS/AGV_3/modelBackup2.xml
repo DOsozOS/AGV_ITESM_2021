@@ -1,0 +1,384 @@
+<?xml version='1.0'?>
+<sdf version = '1.4'>
+<model name = "AGV_1">
+<static>false</static>
+<pose>0 0 1.5 0 0 0 </pose>
+<!--Mass by default is on Kg-->
+<self_collide>1</self_collide> 
+<link name = 'chassisM'>	
+    <self_collide>1</self_collide> 
+    <pose>0 0 0 0 0 0 </pose>
+	<!-- Anchura del perfil Bosch = 0.05m & Radio de la llanta = 0.4-->
+	<!-- Masa de la parte central del chassis-->
+	<inertial>
+    <mass>400</mass>
+    <inertia>
+      <ixx>16.304</ixx>
+      <ixy>0</ixy>
+      <ixz>0</ixz>
+      <iyy>62.22</iyy>
+      <iyz>0</iyz>
+      <izz>73.91</izz>
+    </inertia>
+  	</inertial>
+
+	<collision name = 'collision_chassis'>
+		<pose>-0.07063 0 0 0 0 0 </pose>
+		<geometry>
+			<box>
+			<!-- Center chasis box-->
+			<!--   L   W   H-->	
+			<size> 1.9131 0.648 0.04</size>
+			</box>
+		</geometry>
+	</collision>
+
+	<visual name='visual'>
+	<pose>-0.07063 0 0 0 0 0 </pose>
+	 <geometry>
+	    <box>
+	    	<!-- Center chasis box-->
+			<!--   L   W   H-->	
+	      <size> 1.9131 0.648 0.04 </size>
+	    </box>
+	  </geometry>
+	</visual>
+
+	<collision name = 'collision_chassis2'>
+	<pose>0 0 0.3031 0 0 0 </pose>
+		<geometry>
+			<box>
+			<!-- Center chasis box-->
+			<!--   L   W   H-->	
+			<size> 2 0.648 0.04</size>
+			</box>
+		</geometry>
+	</collision>
+
+	<visual name='visual2'>
+	<pose>0 0 0.3031 0 0 0 </pose>
+	 <geometry>
+	    <box>
+	    	<!-- Center chasis box-->
+			<!--   L   W   H-->	
+	      <size> 2 0.648 0.04 </size>
+	    </box>
+	  </geometry>
+	</visual>
+
+	<collision name = 'collision_chassis3'>
+		<pose>0 0 0.1715 0 0 0 </pose>
+		<geometry>
+			<box>
+			<!-- Center chasis box-->
+			<!--   L   W   H-->	
+			<size> 1.34066 0.648 0.2631</size>
+			</box>
+		</geometry>
+	</collision>
+
+	<visual name='visual3'>
+	<pose>0 0 0.1715 0 0 0 </pose>
+	<geometry>
+	    <box>
+	    	<!-- Center chasis box-->
+			<!--   L   W   H-->	
+	      <size> 1.34066 0.648 0.2631 </size>
+	    </box>
+	</geometry>
+	</visual>
+</link>
+
+
+<link name ='left_front_st'>	
+    <self_collide>1</self_collide> 
+	<pose>0.66967 -0.4776 0.075 0 0 0</pose>
+	<collision name = 'collision_lfs'>
+	<geometry>
+	<cylinder>
+	<radius>0.01</radius>
+	<length>0.1</length>
+	</cylinder>
+	</geometry>
+	</collision>
+
+	<visual name = 'visual'>
+	<geometry>
+	<cylinder>
+	<radius>0.01</radius>
+	<length>0.1</length>
+	</cylinder>
+	</geometry>
+	</visual>
+</link>
+
+<joint type='revolute' name='left_front_wheel_st' >
+	<pose>0 0 0 0 0 0</pose>
+	<child>left_front_st</child>
+	<parent>chassisM</parent>
+	<axis>
+	<xyz>0 0 1</xyz>
+	</axis>
+</joint>
+
+<link name ='left_front_wheel'>
+
+    <self_collide>1</self_collide> 
+	<pose>0.66967 -0.580 0 1.54 0 0</pose>
+
+	<inertial>
+    <mass>4.0</mass>
+    </inertial>
+
+	<collision name = 'collision_lfw'>
+	<geometry>
+	<cylinder>
+	<radius>0.28735</radius>
+	<length>0.09335</length>
+	</cylinder>
+	</geometry>
+
+	<surface>
+      <friction>
+        <ode>
+          <mu>0.7</mu>
+          <mu2>0.7</mu2>
+        </ode>
+      </friction>
+    </surface>
+	</collision>
+
+	<pose>0.66967 -0.580 0 1.54 0 0</pose>
+	<visual name = 'visual'>
+	<geometry>
+	<cylinder>
+	<radius>0.28735</radius>
+	<length>0.09335</length>
+	</cylinder>
+	</geometry>
+
+	<!--material>
+    <ambient>0.1 0.1 0.1 1</ambient>
+    <diffuse>0.1 0.1 0.2 1</diffuse>
+    <specular>0 0 0 0</specular>
+    <emissive>0 0 0 1</emissive>
+  	</material-->
+	</visual>
+</link>
+
+<joint type='revolute' name='left_front_wheel_hinge' >
+	<pose>0 0 0 0 0 0</pose>
+	<child>left_front_wheel</child>
+	<parent>left_front_st</parent>
+	<axis>
+	<xyz>0 1 0</xyz>
+	</axis>
+</joint>
+
+<!--               RIGHT FRONT                     -->
+
+<link name ='right_front_st'>	
+    <self_collide>1</self_collide> 
+	<pose>0.66967 0.4776 0.075 0 0 0</pose>
+	<collision name = 'collision_rfs'>
+	<geometry>
+	<cylinder>
+	<radius>0.01</radius>
+	<length>0.1</length>
+	</cylinder>
+	</geometry>
+	</collision>
+
+	<visual name = 'visual'>
+	<geometry>
+	<cylinder>
+	<radius>0.01</radius>
+	<length>0.1</length>
+	</cylinder>
+	</geometry>
+	</visual>
+</link>
+
+<joint type='revolute' name='right_front_wheel_st' >
+	<pose>0 0 0 0 0 0</pose>
+	<child>right_front_st</child>
+	<parent>chassisM</parent>
+	<axis>
+	<xyz>0 0 1</xyz>
+	</axis>
+</joint>
+
+<link name ='right_front_wheel'>
+
+    <self_collide>1</self_collide> 
+	<pose>0.66967 0.580 0 1.54 0 0</pose>
+
+	<inertial>
+    <mass>4.0</mass>
+    </inertial>
+
+	<collision name = 'collision_rfw'>
+	<geometry>
+	<cylinder>
+	<radius>0.28735</radius>
+	<length>0.09335</length>
+	</cylinder>
+	</geometry>
+
+	<surface>
+      <friction>
+        <ode>
+          <mu>0.7</mu>
+          <mu2>0.7</mu2>
+        </ode>
+      </friction>
+    </surface>
+	</collision>
+
+	<pose>0.66967 0.580 0 1.54 0 0</pose>
+	<visual name = 'visual'>
+	<geometry>
+	<cylinder>
+	<radius>0.28735</radius>
+	<length>0.09335</length>
+	</cylinder>
+	</geometry>
+
+	<!--material>
+    <ambient>0.1 0.1 0.1 1</ambient>
+    <diffuse>0.1 0.1 0.2 1</diffuse>
+    <specular>0 0 0 0</specular>
+    <emissive>0 0 0 1</emissive>
+  	</material-->
+
+	</visual>
+</link>
+
+<joint type='revolute' name='right_front_wheel_hinge' >
+	<pose>0 0 0 0 0 0</pose>
+	<child>right_front_wheel</child>
+	<parent>right_front_st</parent>
+	<axis>
+	<xyz>0 1 0</xyz>
+	</axis>
+</joint>
+<!--               RIGHT REAR                     -->
+<link name ='right_rear_wheel'>
+    <self_collide>1</self_collide> 
+	<pose>-0.66967 -0.580 0 1.54 0 0</pose>
+
+	<inertial>
+    <mass>4.0</mass>
+    </inertial>
+
+	<collision name = 'collision_rrw'>
+	<geometry>
+	<cylinder>
+	<radius>0.28735</radius>
+	<length>0.09335</length>
+	</cylinder>
+	</geometry>
+
+	<surface>
+      <friction>
+        <ode>
+          <mu>0.7</mu>
+          <mu2>0.7</mu2>
+        </ode>
+      </friction>
+    </surface>
+	</collision>
+
+	<pose>-0.66967 -0.580 0 1.54 0 0</pose>
+	<visual name = 'visual'>
+	<geometry>
+	<cylinder>
+	<radius>0.28735</radius>
+	<length>0.09335</length>
+	</cylinder>
+	</geometry>
+
+	<!--material>
+    <ambient>0.1 0.1 0.1 1</ambient>
+    <diffuse>0.1 0.1 0.2 1</diffuse>
+    <specular>0 0 0 0</specular>
+    <emissive>0 0 0 1</emissive>
+  	</material-->
+	</visual>
+</link>
+
+<joint type='revolute' name='right_rear_wheel_hinge' >
+	<pose>0 0 0 0 0 0</pose>
+	<child>right_rear_wheel</child>
+	<parent>chassisM</parent>
+	<axis>
+	<xyz>0 1 0</xyz>
+	</axis>
+</joint>
+<!--               LEFT REAR                     -->
+<link name ='left_rear_wheel'>
+
+    <self_collide>1</self_collide> 
+	<pose>-0.66967 0.580 0 1.54 0 0</pose>
+
+	<inertial>
+    <mass>4.0</mass>
+    </inertial>
+
+	<collision name = 'collision_lfw'>
+	<geometry>
+	<cylinder>
+	<radius>0.28735</radius>
+	<length>0.09335</length>
+	</cylinder>
+	</geometry>
+
+	<surface>
+      <friction>
+        <ode>
+          <mu>0.7</mu>
+          <mu2>0.7</mu2>
+        </ode>
+      </friction>
+    </surface>
+	</collision>
+	
+	<pose>-0.66967 0.580 0 1.54 0 0</pose>
+	<visual name = 'visual'>
+	<geometry>
+	<cylinder>
+	<radius>0.28735</radius>
+	<length>0.09335</length>
+	</cylinder>
+	</geometry>
+
+	<!--material>
+    <ambient>0.1 0.1 0.1 1</ambient>
+    <diffuse>0.1 0.1 0.2 1</diffuse>
+    <specular>0 0 0 0</specular>
+    <emissive>0 0 0 1</emissive>
+  	</material-->
+	</visual>
+</link>
+
+<joint type='revolute' name='left_rear_wheel_hinge' >
+	<pose>0 0 0 0 0 0</pose>
+	<child>left_rear_wheel</child>
+	<parent>chassisM</parent>
+	<axis>
+	<xyz>0 1 0</xyz>
+	</axis>
+</joint>
+<!--
+<include>
+  <uri>model://depth_camera</uri>
+  <pose>1 0 0.3431 0 0 0</pose>
+</include>
+
+<joint name="depth_camera_joint" type="fixed">
+  <child>depth_camera::link</child>
+  <parent>chassisM</parent>
+</joint>
+-->
+</model>
+</sdf>
