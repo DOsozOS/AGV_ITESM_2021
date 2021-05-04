@@ -31,6 +31,8 @@ This simulation is based on the real UGV located on the ITESM campus Puebla
 	python ODOMETRY_ALGORITHM.py
 6 - Once done, run the ROUTE_FOLLOW_PLOT.py in order to get a visual file of what actually happened.
 
+	python ROUTE_FOLLOW_PLOT.py
+	
 Every simulation result will be saved inside the simulation files folder
 
 You can download the map files from mega: https://mega.nz/folder/U4BTSCTR#Pz4S0KjTeyhFtC5opw87_Q
