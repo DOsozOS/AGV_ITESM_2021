@@ -1,4 +1,4 @@
-# THE_OSORIO_AGV
+# AGV_ITESM_2021
 This is the main repository of my research, algorithms and source code modifications of Autonomous Ground Vehicles. This repositories were coded to work with Ubuntu 18
 .04 and Gazebo 9 with ROS melodic.
 
