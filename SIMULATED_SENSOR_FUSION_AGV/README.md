@@ -36,4 +36,5 @@ This simulation is based on the real UGV located on the ITESM campus Puebla
 Every simulation result will be saved inside the simulation files folder
 
 You can download the map files from mega: https://mega.nz/folder/U4BTSCTR#Pz4S0KjTeyhFtC5opw87_Q
+Use the maps located in the Path Following folder in Mega
 Do not hesitate to contact me in case of any doubt: diegoosorio0000@gmail.com
