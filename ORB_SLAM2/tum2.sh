@@ -1,1 +1,0 @@
-./Examples/RGB-D/rgbd_tum Vocabulary/ORBvoc.bin Examples/RGB-D/TUM2.yaml /home/king/Documents/image/rgbd_dataset_freiburg2_rpy /home/king/Documents/image/rgbd_dataset_freiburg2_rpy/associate.txt /home/king/Documents/king/ORB_SLAM2_MAP/map/tum2_map.bin false

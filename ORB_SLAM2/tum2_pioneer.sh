@@ -1,1 +1,0 @@
-./Examples/RGB-D/rgbd_tum Vocabulary/ORBvoc.bin Examples/RGB-D/TUM2.yaml /home/king/Documents/image/rgbd_dataset_freiburg2_pioneer_360/ /home/king/Documents/image/rgbd_dataset_freiburg2_pioneer_360/associations.txt /home/king/Documents/king/ORB_SLAM2_MAP/map/tum2_pioneer.bin true
