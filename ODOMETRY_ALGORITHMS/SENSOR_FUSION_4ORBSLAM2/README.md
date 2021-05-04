@@ -11,3 +11,5 @@
 
 - Run the SENSOR_FUSION_4OS2.py program within your simulation and voila. Now you have a simulation of 4 ORB SLAM 2 combined via Neural Networks.
 - ORIENTATION.PY fuses orientation data just for usage example.
+
+Necessary ORB SLAM2 maps.bin can be found at: https://mega.nz/folder/w4ZXAQBY#JKbuynd7rgqwL5whtf_eMw
