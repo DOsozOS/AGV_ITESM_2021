@@ -11,15 +11,15 @@ This simulation is based on the real UGV located on the ITESM campus Puebla
 	source /opt/ros/melodic/setup.bash
 	cd ~/agv_plugin/build
 	export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:~/agv_plugin/build
-	export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:/home/diegoosorio/model_editor_models
+	export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:/home/username/model_editor_models
 	 source ~/.bashrc
 	rosrun gazebo_ros gazebo ../agv6.world  paused:=true
 3 - Run the ORB SLAM 2 algorithm
 	Be sure that you use the provided maps. If you map your location, be sure everything is on the same reference frame!
 
-	export ROS_PACKAGE_PATH=${ROS_PACKAGE_PATH}:/home/diegoosorio/ORB_SLAM2/Examples/ROS
+	export ROS_PACKAGE_PATH=${ROS_PACKAGE_PATH}:/home/username/ORB_SLAM2/Examples/ROS
 	cd ~/ORB_SLAM2/Examples/ROS/ORB_SLAM2
-	rosrun ORB_SLAM2 Stereo1 /home/diegoosorio/ORB_SLAM2/Vocabulary/ORBvoc.txt /home/diegoosorio/ORB_SLAM2/Examples/ROS/ORB_SLAM2/Asus1.yaml false /home/diegoosorio/ORB_SLAM2/Examples/ROS/ORB_SLAM2/src/maps true
+	rosrun ORB_SLAM2 Stereo1 /home/username/ORB_SLAM2/Vocabulary/ORBvoc.txt /home/username/ORB_SLAM2/Examples/ROS/ORB_SLAM2/Asus1.yaml false /home/username/ORB_SLAM2/Examples/ROS/ORB_SLAM2/src/maps true
 4 - Run the pure pursuit controller (in the SIMULATED_SENSOR_FUSION_AGV directory)
 
 	python PURE_PURSUIT_CONTROLLER.py
