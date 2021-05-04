@@ -2,10 +2,12 @@
 This simulation is based on the real UGV located on the ITESM campus Puebla
 
 1 - Run the roscore
+
 	echo "source /opt/ros/melodic/setup.sh" >> ~/.bashrc
 	source /opt/ros/melodic/setup.bash
 	roscore
 2 - Run the Gazebo 9 simulation
+
 	source /opt/ros/melodic/setup.bash
 	cd ~/agv_plugin/build
 	export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:~/agv_plugin/build
@@ -19,11 +21,17 @@ This simulation is based on the real UGV located on the ITESM campus Puebla
 	cd ~/ORB_SLAM2/Examples/ROS/ORB_SLAM2
 	rosrun ORB_SLAM2 Stereo1 /home/diegoosorio/ORB_SLAM2/Vocabulary/ORBvoc.txt /home/diegoosorio/ORB_SLAM2/Examples/ROS/ORB_SLAM2/Asus1.yaml false /home/diegoosorio/ORB_SLAM2/Examples/ROS/ORB_SLAM2/src/maps true
 4 - Run the pure pursuit controller (in the SIMULATED_SENSOR_FUSION_AGV directory)
+
 	python PURE_PURSUIT_CONTROLLER.py
 5 - Run the button controller (in the SIMULATED_SENSOR_FUSION_AGV directory)
+
 	python CONTROL_INTEGRADO.py
 5 - Run the odometry algorithm which is the main program of this simulation (in the SIMULATED_SENSOR_FUSION_AGV directory)
+
 	python ODOMETRY_ALGORITHM.py
 6 - Once done, run the ROUTE_FOLLOW_PLOT.py in order to get a visual file of what actually happened.
 
 Every simulation result will be saved inside the simulation files folder
+
+You can download the map files from mega: https://mega.nz/folder/U4BTSCTR#Pz4S0KjTeyhFtC5opw87_Q
+Do not hesitate to contact me in case of any doubt: diegoosorio0000@gmail.com
