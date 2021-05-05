@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<launch>
+	<!--ORB_SLAM2-->
+	<node name = "ORB_SLAM2" pkg = "ORB_SLAM2" type = "Stereo" args = "/home/king/Documents/king/ORB_SLAM2_MAP/Vocabulary/ORBvoc.bin /home/king/Documents/king/ORB_SLAM2_MAP/Examples/Stereo/zed.yaml true /home/king/Documents/king/ORB_SLAM2_MAP/map/zed0.bin true" required = "true" output = "screen">
+		<remap from = "/camera/left/image_raw" to = "/zed/left/image_raw_color" />
+		<remap from = "/camera/right/image_raw" to = "/zed/right/image_raw_color" />
+	</node>
+  
+  	<!--ros bag-->
+	<node name = "rosbag" pkg = "rosbag" type = "play" args = "/home/king/Documents/bag/2018-01-20-18-19-47.bag" required = "true">
+	</node>
+
+</launch>

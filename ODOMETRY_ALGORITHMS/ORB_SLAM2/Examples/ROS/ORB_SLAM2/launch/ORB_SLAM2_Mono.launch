@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<launch>
+	<!--ORB_SLAM2-->
+	<node name = "ORB_SLAM2" pkg = "ORB_SLAM2" type = "Mono" args = "/home/king/Documents/king/ORB_SLAM2_MAP/Vocabulary/ORBvoc.bin /home/king/Documents/king/ORB_SLAM2_MAP/Examples/Monocular/loitor.yaml" output = "screen">
+		<remap from = "/camera/image_raw" to = "/cam0/image_raw" />
+	</node>
+  
+  	<!--ros bag-->
+	<node name = "rosbag" pkg = "rosbag" type = "play" args = "/home/king/Documents/bag/2017-12-20-09-12-41.bag" >
+	</node>
+
+</launch>
