@@ -28,7 +28,7 @@ Are you ready for experimenting with the real UGV, you should consider all the s
 
     python XBOX_CONTROLLER.py
     
-<img width=“964” alt=“java 8 and prio java 8  array review example” src=“https://github.com/DOsozOS/AGV_ITESM_2021/blob/80c3abbd20f1a33ec752273e5dd8b4a2a32d068c/EXPERIMENTAL_PATH_FOLLOWING/xbox_controller.png”>
+<img width=“964” src=“https://github.com/DOsozOS/AGV_ITESM_2021/blob/80c3abbd20f1a33ec752273e5dd8b4a2a32d068c/EXPERIMENTAL_PATH_FOLLOWING/xbox_controller.png”>
 
 8 - Run the button controller. This program orders the main odometry program what it has to do like: save a new route (new routes are saved as "saved route_1.csv"), load a new route (rigth now it loads the "saved_route_6.csv" this route starts at the emergency meeting point outside of CIDMA), follow a route (follows "saved_route_6.csv", in order to work initial conditions should be defined inside the program ODOMETRY_ALGORITHM_EXPERIMENTAL.py the variables are: PUNTO_DE_REUNION_X, PUNTO_DE_REUNION_Y, that by the fault the meeting point is (0,0) )
 
