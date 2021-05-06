@@ -1,6 +1,7 @@
 
 # EXPERIMENTAL SOFTWARE FOR THE UGV LOCATED AT THE ITESM CAMPUS PUEBLA
 Are you ready for experimenting with the real UGV, you should consider all the safety requirements before anything. Always verify the batteries voltage are over 48 volts, otherwise the vehicle will be stocked in the middle of nowhere. 
+
 0 - Run roscore
 
         source /opt/ros/melodic/setup.bash
@@ -25,7 +26,7 @@ Are you ready for experimenting with the real UGV, you should consider all the s
     
 7 - Run the serial controller in order to communicate with the AGV_INTERFACE_1.py. You need to plug the Xbox controller first. Be careful, this controller usually unplugs and stops working!.
 
-    XBOX_CONTROLLER.py
+    python XBOX_CONTROLLER.py
     
 8 - Run the button controller. This program orders the main odometry program what it has to do like: save a new route (new routes are saved as "saved route_1.csv"), load a new route (rigth now it loads the "saved_route_6.csv" this route starts at the emergency meeting point outside of CIDMA), follow a route (follows "saved_route_6.csv", in order to work initial conditions should be defined inside the program ODOMETRY_ALGORITHM_EXPERIMENTAL.py the variables are: PUNTO_DE_REUNION_X, PUNTO_DE_REUNION_Y, that by the fault the meeting point is (0,0) )
 
