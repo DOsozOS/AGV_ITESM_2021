@@ -49,3 +49,7 @@ Are you ready for experimenting with the real UGV, you should consider all the s
     
 11 - Execute any task with the UGV and remember that security is first.
 
+12 - If you finished following a path or traveling across any path the plot your odometry with the next python program. Inside ROUTE_FOLLOW_PLOT.py modify the file names of the odometry you want to plot and the route you saved.
+
+        python ROUTE_FOLLOW_PLOT.py
+
