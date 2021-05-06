@@ -2,6 +2,10 @@
 # EXPERIMENTAL SOFTWARE FOR THE UGV LOCATED AT THE ITESM CAMPUS PUEBLA
 Are you ready for experimenting with the real UGV, you should consider all the safety requirements before anything. Always verify the batteries voltage are over 48 volts, otherwise the vehicle will be stocked in the middle of nowhere. Arduino programs are located in the folder ARDUINO/ARDUINO_UGV_SERIAL. The arduino program ARDUINO_UGV_SERIAL.ino controls the UGV steer, speed and brakes. The arduino program ARDUINO_GPS_IMU2.ino reads the GPS and IMU sensors.
 
+The presented results where obtained with the camera placed at 45 cm from the upper part of the vehicle, 44 from the button to the top of the aluminium structure and 1cm of the camera base.
+![](arco_perfil.png)
+
+
 0 - Run roscore
 
         source /opt/ros/melodic/setup.bash
