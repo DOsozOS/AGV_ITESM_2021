@@ -36,6 +36,13 @@ Are you ready for experimenting with the real UGV, you should consider all the s
     
     python PURE_PURSUIT_CONTROLLER.py
     
+10 - Plug the ZED camera to your computer and run the ZED ROS node.
+
+        cd ~/catkin_ws
+        source devel/setup.bash
+        roslaunch zed_wrapper zed.launch
+        
+    
 10 - Run the main program which is 
     
     python ODOMETRY_ALGORITHM_EXPERIMENTAL.py
